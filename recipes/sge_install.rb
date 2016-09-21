@@ -77,14 +77,14 @@ end
 # Copy required licensing files
 directory "#{node['cfncluster']['license_dir']}/sge"
 
-bash 'copy license stuff' do
-  user 'root'
-  group 'root'
-  cwd Chef::Config[:file_cache_path]
-  code <<-EOF
-    cd sge-#{node['cfncluster']['sge']['version']}/LICENCES
-    cp -v SISSL #{node['cfncluster']['license_dir']}/sge/SISSL
-  EOF
-  # TODO: Fix, so it works for upgrade
-  creates "#{node['cfncluster']['license_dir']}/sge/SISSL"
-end
+# bash 'copy license stuff' do
+#   user 'root'
+#   group 'root'
+#   cwd Chef::Config[:file_cache_path]
+#   code <<-EOF
+#     cd sge-#{node['cfncluster']['sge']['version']}/LICENCES
+#     cp -v SISSL #{node['cfncluster']['license_dir']}/sge/SISSL
+#   EOF
+#   # TODO: Fix, so it works for upgrade
+#   creates "#{node['cfncluster']['license_dir']}/sge/SISSL"
+# end
